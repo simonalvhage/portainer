@@ -1,0 +1,26 @@
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    container_name: speedtest-tracker
+    restart: unless-stopped
+    ports:
+      - 8765:80
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-Europe/Stockholm}
+      - APP_KEY=${SPEEDTEST_APP_KEY}
+      - DB_CONNECTION=sqlite
+      - SPEEDTEST_SCHEDULE=0 */3 * * *
+    volumes:
+      - speedtest-config:/config
+    networks:
+      - default
+
+volumes:
+  speedtest-config:
+    name: internet-speed-tester_speedtest-config
+
+networks:
+  default:
+    name: internet-speed-tester_default

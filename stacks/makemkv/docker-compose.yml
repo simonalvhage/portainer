@@ -1,0 +1,28 @@
+services:
+  makemkv:
+    image: jlesage/makemkv:latest
+    container_name: makemkv
+    privileged: true
+    ports:
+      - "5800:5800"
+    environment:
+      - TZ=${TZ:-Europe/Stockholm}
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - UMASK=002
+      # Lägg till din MakeMKV-nyckel här om du har en:
+      # - MAKEMKV_KEY=xxxxxxxxxxxxxxxx
+    volumes:
+      - /mnt/media/dvd_ripped:/output
+      - /opt/makemkv/config:/config
+    devices:
+      - /dev/sr0:/dev/sr0
+      # Lägg till SG-enhet om det behövs:
+      # - /dev/sg1:/dev/sg1
+    networks:
+      - default
+    restart: unless-stopped
+
+networks:
+  default:
+    name: make_mkv_auto_default

@@ -1,0 +1,26 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    restart: unless-stopped
+    privileged: true
+    user: root
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    environment:
+      - TZ=${TZ:-Europe/Stockholm}
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    networks:
+      - default
+
+volumes:
+  jenkins_home:
+    name: jenkins_jenkins_home
+
+networks:
+  default:
+    name: jenkins_default

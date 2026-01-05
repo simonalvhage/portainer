@@ -1,0 +1,73 @@
+# ===========================================
+# SECRETS - NEVER COMMIT THESE
+# ===========================================
+.env
+.env.*
+!.env.example
+*.secret
+*.secrets
+**/secrets/
+credentials/
+*.key
+*.pem
+
+# ===========================================
+# DOCKER DATA
+# ===========================================
+volumes/
+data/
+**/config/
+!**/config/.gitkeep
+
+# Backup archives
+backups/
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+
+# ===========================================
+# OS & EDITOR FILES
+# ===========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# Editors
+*.swp
+*.swo
+*.swn
+.idea/
+.vscode/
+*.sublime-*
+*.code-workspace
+
+# ===========================================
+# LOGS & TEMP FILES
+# ===========================================
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.temp
+*.pid
+
+# ===========================================
+# MISC
+# ===========================================
+node_modules/
+__pycache__/
+*.pyc
+.cache/
