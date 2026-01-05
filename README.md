@@ -26,7 +26,7 @@ Docker-baserad homelab setup med Portainer på Ubuntu/Debian.
 ### 1. Klona repo
 
 ```bash
-git clone https://github.com/yourusername/homelab.git
+git clone https://github.com/simonalvhage/homelab.git
 cd homelab
 ```
 
@@ -153,7 +153,3 @@ Skapa ett sekundärt Eufy-konto och dela ditt hem med det. Använd sekundärkont
 - Kontrollera nätverket mellan Jellyfin och NAS
 - Sänk streaming-kvaliteten
 - Aktivera hardware transcoding om möjligt
-
-## Licens
-
-MIT
